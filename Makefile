@@ -23,7 +23,7 @@ DEPS = $(OBJECTS:.o=.d)
 
 # flags #
 COMPILE_FLAGS =-c -std=c++17 -Wall -Wextra -g
-INCLUDES = -I include/ -I /data/data/com.termux/files/usr/local/include
+INCLUDES = -I include/ -I /data/data/com.termux/files/usr/include -I /data/data/com.termux/files/usr/include/c++/v1/
 # Space-separated pkg-config libraries used by this project
 LIBS = 
 
@@ -69,3 +69,8 @@ $(BIN_PATH)/$(BIN_NAME): $(OBJECTS)
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.$(SRC_EXT)
 	@echo "Compiling: $< -> $@"
 	$(CXX) $< $(CXXFLAGS) -o $@ $(INCLUDES) -MP
+
+
+
+run:
+	./runner
